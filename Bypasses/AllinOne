@@ -141,26 +141,3 @@ task.spawn(function()
         end
     end)
 end)
-
--- GetFocusedTextBox Bypass
-local _IsDescendantOf = game.IsDescendantOf
-
-local TextboxBypass = hookmetamethod(game, "__namecall", function(self, ...)
-    local method = getnamecallmethod()
-    local args = ...
-
-    if not checkcaller() then
-        if typeof(self) == "Instance" and method == "GetFocusedTextBox" and self.ClassName == "UserInputService" then
-            local Textbox = TextboxBypass(self, ...)
-            if Textbox and typeof(Textbox) == "Instance" then
-                local succ, err = pcall(function() _IsDescendantOf(Textbox, Bypassed_Dex) end)
-
-                if err and err:match("The current identity") then
-                    return nil
-                end
-            end
-        end
-    end
-
-    return TextboxBypass(self, ...)
-end)
