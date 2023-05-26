@@ -1,0 +1,70 @@
+-- Initialize variables
+local Amplitude = 200
+local RandomValue = {-200, 200}
+local RandomTime = {.1, 1}
+local floor = math.floor
+local cos = math.cos
+local sin = math.sin
+local acos = math.acos
+local pi = math.pi
+local Maxima = 0
+
+-- Wait until the game is loaded
+repeat
+    task.wait()
+until game:IsLoaded()
+
+-- Find maximum gcinfo
+while true do
+    if gcinfo() >= Maxima then
+        Maxima = gcinfo()
+    else
+        break
+    end
+    task.wait()
+end
+
+task.wait(0.30)
+
+local OldGcInfo = gcinfo() + Amplitude
+local tick = 0
+
+-- Spoof gcinfo
+local function getreturn()
+    local Formula = ((acos(cos(pi * tick)) / pi * (Amplitude * 2)) + -Amplitude)
+    return floor(OldGcInfo + Formula)
+end
+
+local Old
+Old = hookfunction(getrenv().gcinfo, function(...)
+    return getreturn()
+end)
+
+local Old2
+Old2 = hookfunction(getrenv().collectgarbage, function(arg, ...)
+    local suc, err = pcall(Old2, arg, ...)
+    if suc and arg == "count" then
+        return getreturn()
+    end
+    return Old2(arg, ...)
+end)
+
+game:GetService("RunService").Stepped:Connect(function()
+    local Formula = ((acos(cos(pi * tick)) / pi * (Amplitude * 2)) + -Amplitude)
+    if Formula > ((acos(cos(pi * (tick + .01))) / pi * (Amplitude * 2)) + -Amplitude) then
+        tick = tick + .07
+    else
+        tick = tick + 0.01
+    end
+end)
+
+-- Adjust variables periodically
+local old1 = Amplitude
+for i, v in next, RandomTime do
+    RandomTime[i] = v * 10000
+end
+
+while true do
+    task.wait(math.random(RandomTime[1], RandomTime[2]) / 10000)
+    Amplitude = math.random(old1 + RandomValue[1], old1 + RandomValue[2])
+end
