@@ -1,0 +1,47 @@
+-- Wait until the game is loaded
+repeat
+    task.wait()
+until game:IsLoaded()
+
+-- Clone necessary services
+local RunService = cloneref(game:GetService("RunService"))
+local Stats = cloneref(game:GetService("Stats"))
+
+-- Initialize variables
+local CurrMem = Stats:GetTotalMemoryUsageMb()
+local Rand = 0
+
+-- Update Rand value on each step
+RunService.Stepped:Connect(function()
+    local random = Random.new()
+    Rand = random:NextNumber(-10, 10)
+end)
+
+-- Calculate the modified return value
+local function GetReturn()
+    return CurrMem + Rand
+end
+
+-- Hook the __namecall metamethod to bypass memory checks
+local _MemBypass
+_MemBypass = hookmetamethod(game, "__namecall", function(self, ...)
+    local method = getnamecallmethod()
+
+    if not checkcaller() then
+        if typeof(self) == "Instance" and (method == "GetTotalMemoryUsageMb" or method == "getTotalMemoryUsageMb") and self.ClassName == "Stats" then
+            return GetReturn()
+        end
+    end
+
+    return _MemBypass(self, ...)
+end)
+
+-- Hook the indexed version of GetTotalMemoryUsageMb to bypass memory checks
+local _MemBypassIndex
+_MemBypassIndex = hookfunction(Stats.GetTotalMemoryUsageMb, function(self, ...)
+    if not checkcaller() then
+        if typeof(self) == "Instance" and self.ClassName == "Stats" then
+            return GetReturn()
+        end
+    end
+end)
