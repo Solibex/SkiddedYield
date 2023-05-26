@@ -1,0 +1,7 @@
+return notify("Loaded Bypasses")
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Empire4946/WindowsYield/main/Bypasses/GCInfo",true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Empire4946/WindowsYield/main/Bypasses/Memory",true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Empire4946/WindowsYield/main/Bypasses/Memory2",true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Empire4946/WindowsYield/main/Bypasses/Textbox",true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Empire4946/WindowsYield/main/Bypasses/AdonisBypass",true))()
