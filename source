@@ -2921,12 +2921,12 @@ defaultsettings = {
 	binds = {};
 	WayPoints = {};
 	PluginsTable = {};
-	currentShade1 = {53,53,53};
-	currentShade2 = {41,41,41};
-	currentShade3 = {21,21,21};
-	currentText1 = {255,255,255};
-	currentText2 = {255,255,255};
-	currentScroll = {255,255,255};
+	currentShade1 = {currentShade1.R,currentShade1.G,currentShade1.B};
+	currentShade2 = {currentShade2.R,currentShade2.G,currentShade2.B};
+	currentShade3 = {currentShade3.R,currentShade3.G,currentShade3.B};
+	currentText1 = {currentText1.R,currentText1.G,currentText1.B};
+	currentText2 = {currentText2.R,currentText2.G,currentText2.B};
+	currentScroll = {currentScroll.R,currentScroll.G,currentScroll.B};
 	eventBinds = eventEditor.SaveData()
 }
 
