@@ -1,14 +1,3 @@
--- Dex Bypasses
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Babyhamsta/RBLX_Scripts/main/Universal/Bypasses.lua", true))()
-
--- Adonis Client Bypass
-loadstring(game:HttpGet("https://raw.githubusercontent.com/RelkzzRebranded/Bypassed---OBFUSCATED..../main/Adonis%20BYPASS.lua"))()
-
---// Additional Functions
-
-_L = {}
-_L.timestamp = tick()
-
 function randomString()
 	local length = math.random(10,20)
 	local array = {}
@@ -16,154 +5,6 @@ function randomString()
 		array[i] = string.char(math.random(32, 126))
 	end
 	return table.concat(array)
-end
-
-local notificationLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/laagginq/ui-libraries/main/xaxas-notification/src.lua"))();
-local notifications = notificationLibrary.new({            
-    NotificationLifetime = 3, 
-    NotificationPosition = "Middle",
-    
-    TextFont = Enum.Font.Code,
-    TextColor = Color3.fromRGB(255, 255, 255),
-    TextSize = 15,
-    
-    TextStrokeTransparency = 0, 
-    TextStrokeColor = Color3.fromRGB(0, 0, 0)
-});
-
-notifications:BuildNotificationUI();
-notifications:Notify("Loaded in "..string.format("%.5f", tick() - _L.timestamp))
-
---// Script
-
-if isfolder("WindowsYield") then
-
-local WYLoading = Instance.new("ScreenGui")
-WYLoading.Name = randomString()
-WYLoading.Parent = game.CoreGui
-WYLoading.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-
-local LoadingFrame = Instance.new("Frame")
-LoadingFrame.Name = "LoadingFrame"
-LoadingFrame.Parent = WYLoading
-LoadingFrame.BackgroundColor3 = Color3.new(1, 1, 1)
-LoadingFrame.BackgroundTransparency = 1
-LoadingFrame.Position = UDim2.new(0.5, -169, 0.5, -50)
-LoadingFrame.Size = UDim2.new(0, 339, 0, 100)
-
-local Title = Instance.new("TextLabel")
-Title.Name = "Title"
-Title.Parent = LoadingFrame
-Title.BackgroundColor3 = Color3.new(1, 1, 1)
-Title.BackgroundTransparency = 1
-Title.Position = UDim2.new(0.203539819, 0, 0.230000004, 0)
-Title.Size = UDim2.new(0, 200, 0, 31)
-Title.Font = Enum.Font.TitilliumWeb
-Title.Text = "WindowsYield"
-Title.TextColor3 = Color3.new(1, 1, 1)
-Title.TextScaled = true
-Title.TextSize = 14
-Title.TextStrokeTransparency = 0
-Title.TextWrapped = true
-
-local Description = Instance.new("TextLabel")
-Description.Name = "Description"
-Description.Parent = LoadingFrame
-Description.BackgroundColor3 = Color3.new(1, 1, 1)
-Description.BackgroundTransparency = 1
-Description.Position = UDim2.new(0.203539819, 0, 0.539999962, 0)
-Description.Size = UDim2.new(0, 200, 0, 22)
-Description.Font = Enum.Font.TitilliumWeb
-Description.Text = "by marcellus"
-Description.TextColor3 = Color3.new(1, 1, 1)
-Description.TextScaled = true
-Description.TextSize = 14
-Description.TextStrokeTransparency = 0
-Description.TextWrapped = true
-
-_G.songs = true
-local customasset
-
-if _G.songs and getsynasset then
-    customasset = getsynasset
-else
-    customasset = function(song) return "rbxassetid://0" end
-end
-
-local StartUpSoundWY = Instance.new("Sound", Workspace)
-StartUpSoundWY.Playing = true
-StartUpSoundWY.Volume = 1
-StartUpSoundWY.SoundId = customasset("WindowsYield\\Sounds\\Female.mp3")
-
--- Gradually make the text disappear after 1 second
-wait(1)
-local transparencyStep = 0.1
-while Title.TextTransparency < 1 or Description.TextTransparency < 1 do
-    Title.TextTransparency = math.min(Title.TextTransparency + transparencyStep, 1)
-    Description.TextTransparency = math.min(Description.TextTransparency + transparencyStep, 1)
-    wait()
-end
-
--- Delete the ScreenGui
-WYLoading:Destroy()
-StartUpSoundWY:Destroy()
-
-else
-	local WYLoading = Instance.new("ScreenGui")
-WYLoading.Name = randomString()
-WYLoading.Parent = game.CoreGui
-WYLoading.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-
-local LoadingFrame = Instance.new("Frame")
-LoadingFrame.Name = "LoadingFrame"
-LoadingFrame.Parent = WYLoading
-LoadingFrame.BackgroundColor3 = Color3.new(1, 1, 1)
-LoadingFrame.BackgroundTransparency = 1
-LoadingFrame.Position = UDim2.new(0.5, -169, 0.5, -50)
-LoadingFrame.Size = UDim2.new(0, 339, 0, 100)
-
-local Title = Instance.new("TextLabel")
-Title.Name = "Title"
-Title.Parent = LoadingFrame
-Title.BackgroundColor3 = Color3.new(1, 1, 1)
-Title.BackgroundTransparency = 1
-Title.Position = UDim2.new(0.203539819, 0, 0.230000004, 0)
-Title.Size = UDim2.new(0, 200, 0, 31)
-Title.Font = Enum.Font.TitilliumWeb
-Title.Text = "WindowsYield"
-Title.TextColor3 = Color3.new(1, 1, 1)
-Title.TextScaled = true
-Title.TextSize = 14
-Title.TextStrokeTransparency = 0
-Title.TextWrapped = true
-
-local Description = Instance.new("TextLabel")
-Description.Name = "Description"
-Description.Parent = LoadingFrame
-Description.BackgroundColor3 = Color3.new(1, 1, 1)
-Description.BackgroundTransparency = 1
-Description.Position = UDim2.new(0.203539819, 0, 0.539999962, 0)
-Description.Size = UDim2.new(0, 200, 0, 22)
-Description.Font = Enum.Font.TitilliumWeb
-Description.Text = "by marcellus"
-Description.TextColor3 = Color3.new(1, 1, 1)
-Description.TextScaled = true
-Description.TextSize = 14
-Description.TextStrokeTransparency = 0
-Description.TextWrapped = true
-
--- Gradually make the text disappear after 1 second
-wait(1)
-local transparencyStep = 0.1
-while Title.TextTransparency < 1 or Description.TextTransparency < 1 do
-    Title.TextTransparency = math.min(Title.TextTransparency + transparencyStep, 1)
-    Description.TextTransparency = math.min(Description.TextTransparency + transparencyStep, 1)
-    wait()
-end
-
--- Delete the ScreenGui
-WYLoading:Destroy()
-warn("WindowsYield: Download the assets for better experience.")
 end
 
 COREGUI = game:GetService("CoreGui")
@@ -323,27 +164,6 @@ shade3 = {}
 text1 = {}
 text2 = {}
 scroll = {}
-
-Holder.Name = randomString()
-Holder.Parent = PARENT
-Holder.Active = true
-Holder.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
-Holder.BorderSizePixel = 0
-Holder.Position = UDim2.new(1, -250, 1, -220)
-Holder.Size = UDim2.new(0, 250, 0, 220)
-Holder.ZIndex = 10
-table.insert(shade2,Holder)
-
-Title.Name = "Title"
-Title.Parent = Holder
-Title.Active = true
-Title.BackgroundColor3 = Color3.fromRGB(36,36,37)
-Title.BorderSizePixel = 0
-Title.Size = UDim2.new(0, 250, 0, 20)
-Title.Font = Enum.Font.SourceSans
-Title.TextSize = 18
-Title.Text = "WindowsYield v" .. currentVersion
-
 do
 	local emoji = ({
 		["01 01"] = "🎆",
@@ -1590,7 +1410,7 @@ PluginsHint.Position = UDim2.new(0, 25, 0, 40)
 PluginsHint.Size = UDim2.new(0, 200, 0, 50)
 PluginsHint.Font = Enum.Font.SourceSansItalic
 PluginsHint.TextSize = 16
-PluginsHint.Text = "Download plugins from the WY Discord (discord.io/infiniteyield)"
+PluginsHint.Text = "Download plugins from the IY Discord (discord.io/infiniteyield)"
 PluginsHint.TextColor3 = Color3.new(1, 1, 1)
 PluginsHint.TextStrokeColor3 = Color3.new(1, 1, 1)
 PluginsHint.TextWrapped = true
@@ -2039,7 +1859,7 @@ ViewportTextBox.convert(Cmdbar).View.ZIndex = 10
 ViewportTextBox.convert(Cmdbar_2).View.ZIndex = 10
 ViewportTextBox.convert(Cmdbar_3).View.ZIndex = 10
 
-WYMouse = Players.LocalPlayer:GetMouse()
+IYMouse = Players.LocalPlayer:GetMouse()
 UserInputService = game:GetService("UserInputService")
 TweenService = game:GetService("TweenService")
 HttpService = game:GetService("HttpService")
@@ -2863,7 +2683,7 @@ reference = (function()
 		{111,"TextLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Font=3,Name="Text",Parent={105},Position=UDim2.new(0,8,0,148),Size=UDim2.new(1,-8,0,16),Text="Setting up 'goto $1' on the OnChatted event will teleport you to any player that chats.",TextColor3=Color3.new(1,1,1),TextSize=14,TextWrapped=true,TextXAlignment=0,TextYAlignment=0,ZIndex=10,}},
 		{112,"Frame",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Name="Section",Parent={7},Size=UDim2.new(1,0,0,105),ZIndex=10,}},
 		{113,"TextLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Font=4,Name="Header",Parent={112},Position=UDim2.new(0,8,0,5),Size=UDim2.new(1,-8,0,20),Text="Get Further Help",TextColor3=Color3.new(1,1,1),TextSize=20,TextXAlignment=0,ZIndex=10,}},
-		{114,"TextLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Font=3,Name="Text",Parent={112},Position=UDim2.new(0,8,0,30),Size=UDim2.new(1,-8,0,32),Text="You can join the Discord server to get support with WY,  and read up on more documentation such as the Plugin API.",TextColor3=Color3.new(1,1,1),TextSize=14,TextWrapped=true,TextXAlignment=0,ZIndex=10,}},
+		{114,"TextLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Font=3,Name="Text",Parent={112},Position=UDim2.new(0,8,0,30),Size=UDim2.new(1,-8,0,32),Text="You can join the Discord server to get support with IY,  and read up on more documentation such as the Plugin API.",TextColor3=Color3.new(1,1,1),TextSize=14,TextWrapped=true,TextXAlignment=0,ZIndex=10,}},
 		{115,"Frame",{BackgroundColor3=Color3.new(0.1803921610117,0.1803921610117,0.1843137294054),BorderSizePixel=0,Name="Line",Parent={112},Position=UDim2.new(0,10,1,-1),Size=UDim2.new(1,-20,0,1),Visible=false,ZIndex=10,}},
 		{116,"TextButton",{BackgroundColor3=Color3.new(0.48627451062202,0.61960786581039,0.85098040103912),BorderColor3=Color3.new(0.1803921610117,0.1803921610117,0.1843137294054),Font=4,Name="InviteButton",Parent={112},Position=UDim2.new(0,5,0,75),Size=UDim2.new(1,-10,0,25),Text="Copy Discord Invite Link (https://discord.io/infiniteyield)",TextColor3=Color3.new(0.1803921610117,0.1803921610117,0.1843137294054),TextSize=16,ZIndex=10,}},
 	})
@@ -2914,7 +2734,7 @@ defaultsettings = {
 	prefix = ';';
 	StayOpen = true;
 	espTransparency = 0.3;
-	keepWY = true;
+	keepIY = true;
 	logsEnabled = false;
 	jLogsEnabled = false;
 	aliases = {};
@@ -2936,13 +2756,13 @@ nosaves = false
 local loadedEventData = nil
 function saves()
 	if writefileExploit() then
-		if pcall(function() readfile("WY_FE.IY") end) then
-			if readfile("WY_FE.IY") ~= nil then
+		if pcall(function() readfile("IY_FE.IY") end) then
+			if readfile("IY_FE.IY") ~= nil then
 				local success, response = pcall(function()
-					local json = HttpService:JSONDecode(readfile("WY_FE.IY"))
+					local json = HttpService:JSONDecode(readfile("IY_FE.IY"))
 					if json.prefix ~= nil then prefix = json.prefix else prefix = ';' end
 					if json.StayOpen ~= nil then StayOpen = json.StayOpen else StayOpen = false end
-					if json.keepWY ~= nil then KeepInfYield = json.keepWY else KeepInfYield = true end
+					if json.keepIY ~= nil then KeepInfYield = json.keepIY else KeepInfYield = true end
 					if json.espTransparency ~= nil then espTransparency = json.espTransparency else espTransparency = 0.3 end
 					if json.logsEnabled ~= nil then logsEnabled = json.logsEnabled else logsEnabled = false end
 					if json.jLogsEnabled ~= nil then jLogsEnabled = json.jLogsEnabled else jLogsEnabled = false end
@@ -2962,19 +2782,19 @@ function saves()
 				if not success then
 					warn("Save Json Error:", response)
 					warn("Overwriting Save File")
-					writefileCooldown("WY_FE.IY", defaults)
+					writefileCooldown("IY_FE.IY", defaults)
 					wait()
 					saves()
 				end
 			else
-				writefileCooldown("WY_FE.IY", defaults)
+				writefileCooldown("IY_FE.IY", defaults)
 				wait()
 				saves()
 			end
 		else
-			writefileCooldown("WY_FE.IY", defaults)
+			writefileCooldown("IY_FE.IY", defaults)
 			wait()
-			if pcall(function() readfile("WY_FE.IY") end) then
+			if pcall(function() readfile("IY_FE.IY") end) then
 				saves()
 			else
 				nosaves = true
@@ -3089,7 +2909,7 @@ function updatesaves()
 		local update = {
 			prefix = prefix;
 			StayOpen = StayOpen;
-			keepWY = KeepInfYield;
+			keepIY = KeepInfYield;
 			espTransparency = espTransparency;
 			logsEnabled = logsEnabled;
 			jLogsEnabled = jLogsEnabled;
@@ -3105,7 +2925,7 @@ function updatesaves()
 			currentScroll = {currentScroll.R,currentScroll.G,currentScroll.B};
 			eventBinds = eventEditor.SaveData()
 		}
-		writefileCooldown("WY_FE.IY", HttpService:JSONEncode(update))
+		writefileCooldown("IY_FE.IY", HttpService:JSONEncode(update))
 	end
 end
 
@@ -3333,7 +3153,7 @@ function CreateJoinLabel(plr,ID)
 	info2.Text = string.gsub(info2.Text, "Loading...",splitDates[2].."/"..splitDates[3].."/"..splitDates[1])
 end
 
-WYMouse.KeyDown:Connect(function(Key)
+IYMouse.KeyDown:Connect(function(Key)
 	if (Key==prefix) then
 		Cmdbar:CaptureFocus()
 		spawn(function()
@@ -3447,7 +3267,7 @@ ColorsButton.MouseButton1Click:Connect(function()
 				local greenInput = pickerFrame.Green.Input
 				local blueInput = pickerFrame.Blue.Input
 
-				local mouse = WYMouse
+				local mouse = IYMouse
 
 				local hue,sat,val = 0,0,1
 				local red,green,blue = 1,1,1
@@ -4072,20 +3892,20 @@ local ClickSelect = nil
 function selectPart()
 	ToPartFrame:TweenPosition(UDim2.new(0.5, -180, 0, 335), "InOut", "Quart", 0.5, true, nil)
 	local function HighlightPart()
-		if selected.Adornee ~= WYMouse.Target then
-			selectionBox.Adornee = WYMouse.Target
+		if selected.Adornee ~= IYMouse.Target then
+			selectionBox.Adornee = IYMouse.Target
 		else
 			selectionBox.Adornee = nil
 		end
 	end
-	ActivateHighlight = WYMouse.Move:Connect(HighlightPart)
+	ActivateHighlight = IYMouse.Move:Connect(HighlightPart)
 	local function SelectPart()
-		if WYMouse.Target ~= nil then
-			selected.Adornee = WYMouse.Target
-			Path.Text = getHierarchy(WYMouse.Target)
+		if IYMouse.Target ~= nil then
+			selected.Adornee = IYMouse.Target
+			Path.Text = getHierarchy(IYMouse.Target)
 		end
 	end
-	ClickSelect = WYMouse.Button1Down:Connect(SelectPart)
+	ClickSelect = IYMouse.Button1Down:Connect(SelectPart)
 end
 
 Part.MouseButton1Click:Connect(function()
@@ -4383,12 +4203,12 @@ function autoComplete(str,curText)
 end
 
 CMDs = {}
-CMDs[#CMDs + 1] = {NAME = 'IrisCompat V2 / compatibility / compat', DESC = 'Makes you able to use SYN scripts. [DEPRECATED]'}
-CMDs[#CMDs + 1] = {NAME = 'removeLigma', DESC = 'Removes the ligma worm for Original IY and WindowsYield.'}
+CMDs[#CMDs + 1] = {NAME = 'IrisCompat V2 / compatibility / compat', DESC = 'Makes you able to use SYN scripts. [SHIT AS FUCK]'}
+CMDs[#CMDs + 1] = {NAME = 'removeLigma', DESC = 'Removes the ligma worm for Original IY'}
 CMDs[#CMDs + 1] = {NAME = 'discord / support / help', DESC = 'Invite to the Infinite Yield support server.'}
 CMDs[#CMDs + 1] = {NAME = 'console', DESC = 'Loads old Roblox console'}
 CMDs[#CMDs + 1] = {NAME = 'explorer / dex', DESC = 'Opens DEX by Moon'}
-CMDs[#CMDs + 1] = {NAME = 'securedex / sdex', DESC = 'Opens Secure Dex by HamstaGang'}
+CMDs[#CMDs + 1] = {NAME = 'skiddex / sdex', DESC = 'Opens Secure Dex by HamstaGang'}
 CMDs[#CMDs + 1] = {NAME = 'remotespy / rspy', DESC = 'Opens Simple Spy V3'}
 CMDs[#CMDs + 1] = {NAME = 'audiologger / alogger', DESC = 'Opens Bit8Bits audio logger'}
 CMDs[#CMDs + 1] = {NAME = 'serverinfo / info', DESC = 'Gives you info about the server'}
@@ -4415,11 +4235,11 @@ CMDs[#CMDs + 1] = {NAME = 'hideguis', DESC = 'Hides any GUIs in PlayerGui'}
 CMDs[#CMDs + 1] = {NAME = 'unhideguis', DESC = 'Undoes hideguis'}
 CMDs[#CMDs + 1] = {NAME = 'guidelete', DESC = 'Enables backspace to delete GUI'}
 CMDs[#CMDs + 1] = {NAME = 'unguidelete / noguidelete', DESC = 'Disables guidelete'}
-CMDs[#CMDs + 1] = {NAME = 'hideWY', DESC = 'Hides the main WY GUI'}
-CMDs[#CMDs + 1] = {NAME = 'showWY / unhideWY', DESC = 'Shows WY again'}
-CMDs[#CMDs + 1] = {NAME = 'keepWY', DESC = 'Auto execute WY when you teleport through servers'}
-CMDs[#CMDs + 1] = {NAME = 'unkeepWY', DESC = 'Disable keepWY'}
-CMDs[#CMDs + 1] = {NAME = 'togglekeepWY', DESC = 'Toggle keepWY'}
+CMDs[#CMDs + 1] = {NAME = 'hideIY', DESC = 'Hides the main IY GUI'}
+CMDs[#CMDs + 1] = {NAME = 'showIY / unhideIY', DESC = 'Shows IY again'}
+CMDs[#CMDs + 1] = {NAME = 'keepIY', DESC = 'Auto execute IY when you teleport through servers'}
+CMDs[#CMDs + 1] = {NAME = 'unkeepIY', DESC = 'Disable keepIY'}
+CMDs[#CMDs + 1] = {NAME = 'togglekeepIY', DESC = 'Toggle keepIY'}
 CMDs[#CMDs + 1] = {NAME = 'savegame / saveplace', DESC = 'Uses saveinstance to save the game'}
 CMDs[#CMDs + 1] = {NAME = 'clearerror', DESC = 'Clears the annoying box and blur when a game kicks you'}
 CMDs[#CMDs + 1] = {NAME = 'clientantikick / antikick (CLIENT)', DESC = 'Prevents localscripts from kicking you'}
@@ -4803,7 +4623,7 @@ IndexContents('',true)
 
 function checkTT()
 	local t
-	local guisAtPosition = COREGUI:GetGuiObjectsAtPosition(WYMouse.X, WYMouse.Y)
+	local guisAtPosition = COREGUI:GetGuiObjectsAtPosition(IYMouse.X, IYMouse.Y)
 
 	for _, gui in pairs(guisAtPosition) do
 		if gui.Parent == CMDsF then
@@ -4812,16 +4632,16 @@ function checkTT()
 	end
 
 	if t ~= nil and t:GetAttribute("Title") ~= nil then
-		local x = WYMouse.X
-		local y = WYMouse.Y
+		local x = IYMouse.X
+		local y = IYMouse.Y
 		local xP
 		local yP
-		if WYMouse.X > 200 then
+		if IYMouse.X > 200 then
 			xP = x - 201
 		else
 			xP = x + 21
 		end
-		if WYMouse.Y > (WYMouse.ViewSizeY-96) then
+		if IYMouse.Y > (IYMouse.ViewSizeY-96) then
 			yP = y - 97
 		else
 			yP = y
@@ -5118,7 +4938,7 @@ local WorldToScreen = function(Object)
 end
 
 local MousePositionToVector2 = function()
-	return Vector2.new(WYMouse.X, WYMouse.Y)
+	return Vector2.new(IYMouse.X, IYMouse.Y)
 end
 
 local GetClosestPlayerFromCursor = function()
@@ -6109,7 +5929,7 @@ local function clicktpFunc()
 		local hipHeight = humanoid and humanoid.HipHeight > 0 and (humanoid.HipHeight + 1)
 		local rootPart = getRoot(character)
 		local rootPartPosition = rootPart.Position
-		local hitPosition = WYMouse.Hit.Position
+		local hitPosition = IYMouse.Hit.Position
 		local newCFrame = CFrame.new(
 			hitPosition, 
 			Vector3.new(rootPartPosition.X, hitPosition.Y, rootPartPosition.Z)
@@ -6119,7 +5939,7 @@ local function clicktpFunc()
 	end)
 end
 
-WYMouse.Button1Down:Connect(function()
+IYMouse.Button1Down:Connect(function()
 	for i,v in pairs(binds) do
 		if v.COMMAND == 'clicktp' then
 			local input = v.KEY
@@ -6133,11 +5953,11 @@ WYMouse.Button1Down:Connect(function()
 		elseif v.COMMAND == 'clickdel' then
 			local input = v.KEY
 			if input == 'RightClick' and UserInputService:IsMouseButtonPressed(Enum.UserInputType.MouseButton2) then
-				pcall(function() WYMouse.Target:Destroy() end)
+				pcall(function() IYMouse.Target:Destroy() end)
 			elseif input == 'LeftClick' and UserInputService:IsMouseButtonPressed(Enum.UserInputType.MouseButton1) then
-				pcall(function() WYMouse.Target:Destroy() end)
+				pcall(function() IYMouse.Target:Destroy() end)
 			elseif UserInputService:IsKeyDown(Enum.KeyCode[input:sub(14)]) then
-				pcall(function() WYMouse.Target:Destroy() end)
+				pcall(function() IYMouse.Target:Destroy() end)
 			end
 		end
 	end
@@ -6146,7 +5966,7 @@ end)
 PluginsGUI = PluginEditor.background
 
 function addPlugin(name)
-	if name:lower() == 'plugin file name' or name:lower() == 'WY_FE.IY' or name == 'WY_FE' then
+	if name:lower() == 'plugin file name' or name:lower() == 'IY_FE.IY' or name == 'IY_FE' then
 		notify('Plugin Error','Please enter a valid plugin')
 	else
 		local file
@@ -6470,7 +6290,7 @@ addcmd('discord', {'support', 'help'}, function(args, speaker)
 	end
 end)
 
-addcmd('keepWY', {}, function(args, speaker)
+addcmd('keepIY', {}, function(args, speaker)
 	if queueteleport then
 		KeepInfYield = true
 		updatesaves()
@@ -6479,7 +6299,7 @@ addcmd('keepWY', {}, function(args, speaker)
 	end
 end)
 
-addcmd('unkeepWY', {}, function(args, speaker)
+addcmd('unkeepIY', {}, function(args, speaker)
 	if queueteleport then
 		KeepInfYield = false
 		updatesaves()
@@ -6488,7 +6308,7 @@ addcmd('unkeepWY', {}, function(args, speaker)
 	end
 end)
 
-addcmd('toggleunkeepWY', {}, function(args, speaker)
+addcmd('toggleunkeepIY', {}, function(args, speaker)
 	if queueteleport then
 		KeepInfYield = not KeepInfYield
 		updatesaves()
@@ -6968,11 +6788,11 @@ end)
 
 FLYING = false
 QEfly = true
-WYflyspeed = 1
+IYflyspeed = 1
 vehicleflyspeed = 1
 function sFLY(vfly)
 	repeat wait() until Players.LocalPlayer and Players.LocalPlayer.Character and getRoot(Players.LocalPlayer.Character) and Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
-	repeat wait() until WYMouse
+	repeat wait() until IYMouse
 	if flyKeyDown or flyKeyUp then flyKeyDown:Disconnect() flyKeyUp:Disconnect() end
 
 	local T = getRoot(Players.LocalPlayer.Character)
@@ -7021,23 +6841,23 @@ function sFLY(vfly)
 			end
 		end)
 	end
-	flyKeyDown = WYMouse.KeyDown:Connect(function(KEY)
+	flyKeyDown = IYMouse.KeyDown:Connect(function(KEY)
 		if KEY:lower() == 'w' then
-			CONTROL.F = (vfly and vehicleflyspeed or WYflyspeed)
+			CONTROL.F = (vfly and vehicleflyspeed or IYflyspeed)
 		elseif KEY:lower() == 's' then
-			CONTROL.B = - (vfly and vehicleflyspeed or WYflyspeed)
+			CONTROL.B = - (vfly and vehicleflyspeed or IYflyspeed)
 		elseif KEY:lower() == 'a' then
-			CONTROL.L = - (vfly and vehicleflyspeed or WYflyspeed)
+			CONTROL.L = - (vfly and vehicleflyspeed or IYflyspeed)
 		elseif KEY:lower() == 'd' then 
-			CONTROL.R = (vfly and vehicleflyspeed or WYflyspeed)
+			CONTROL.R = (vfly and vehicleflyspeed or IYflyspeed)
 		elseif QEfly and KEY:lower() == 'e' then
-			CONTROL.Q = (vfly and vehicleflyspeed or WYflyspeed)*2
+			CONTROL.Q = (vfly and vehicleflyspeed or IYflyspeed)*2
 		elseif QEfly and KEY:lower() == 'q' then
-			CONTROL.E = -(vfly and vehicleflyspeed or WYflyspeed)*2
+			CONTROL.E = -(vfly and vehicleflyspeed or IYflyspeed)*2
 		end
 		pcall(function() workspace.CurrentCamera.CameraType = Enum.CameraType.Track end)
 	end)
-	flyKeyUp = WYMouse.KeyUp:Connect(function(KEY)
+	flyKeyUp = IYMouse.KeyUp:Connect(function(KEY)
 		if KEY:lower() == 'w' then
 			CONTROL.F = 0
 		elseif KEY:lower() == 's' then
@@ -7069,14 +6889,14 @@ addcmd('fly',{},function(args, speaker)
 	wait()
 	sFLY()
 	if args[1] and isNumber(args[1]) then
-		WYflyspeed = args[1]
+		IYflyspeed = args[1]
 	end
 end)
 
 addcmd('flyspeed',{'flysp'},function(args, speaker)
 	local speed = args[1] or 1
 	if isNumber(speed) then
-		WYflyspeed = speed
+		IYflyspeed = speed
 	end
 end)
 
@@ -7176,22 +6996,22 @@ addcmd('float', {'platform'},function(args, speaker)
 			local FloatValue = -3.1
 			Float.CFrame = getRoot(pchar).CFrame * CFrame.new(0,FloatValue,0)
 			notify('Float','Float Enabled (Q = down & E = up)')
-			qUp = WYMouse.KeyUp:Connect(function(KEY)
+			qUp = IYMouse.KeyUp:Connect(function(KEY)
 				if KEY == 'q' then
 					FloatValue = FloatValue + 0.5
 				end
 			end)
-			eUp = WYMouse.KeyUp:Connect(function(KEY)
+			eUp = IYMouse.KeyUp:Connect(function(KEY)
 				if KEY == 'e' then
 					FloatValue = FloatValue - 0.5
 				end
 			end)
-			qDown = WYMouse.KeyDown:Connect(function(KEY)
+			qDown = IYMouse.KeyDown:Connect(function(KEY)
 				if KEY == 'q' then
 					FloatValue = FloatValue - 0.5
 				end
 			end)
-			eDown = WYMouse.KeyDown:Connect(function(KEY)
+			eDown = IYMouse.KeyDown:Connect(function(KEY)
 				if KEY == 'e' then
 					FloatValue = FloatValue + 0.5
 				end
@@ -7598,7 +7418,7 @@ end)
 
 function deleteGuisAtPos()
 	pcall(function()
-		local guisAtPosition = Players.LocalPlayer.PlayerGui:GetGuiObjectsAtPosition(WYMouse.X, WYMouse.Y)
+		local guisAtPosition = Players.LocalPlayer.PlayerGui:GetGuiObjectsAtPosition(IYMouse.X, IYMouse.Y)
 		for _, gui in pairs(guisAtPosition) do
 			if gui.Visible == true then
 				gui:Destroy()
@@ -7625,7 +7445,7 @@ addcmd('unguidelete',{'noguidelete'},function(args, speaker)
 end)
 
 local wasStayOpen = StayOpen
-addcmd('hideWY',{},function(args, speaker)
+addcmd('hideIY',{},function(args, speaker)
 	isHidden = true
 	wasStayOpen = StayOpen
 	if StayOpen == true then
@@ -7634,10 +7454,10 @@ addcmd('hideWY',{},function(args, speaker)
 	end
 	minimizeNum = 0
 	minimizeHolder()
-	if not (args[1] and tostring(args[1]) == 'nonotify') then notify('WY Hidden','You can press the prefix key to access the command bar') end
+	if not (args[1] and tostring(args[1]) == 'nonotify') then notify('IY Hidden','You can press the prefix key to access the command bar') end
 end)
 
-addcmd('showWY',{'unhideWY'},function(args, speaker)
+addcmd('showIY',{'unhideIY'},function(args, speaker)
 	isHidden = false
 	minimizeNum = -20
 	if wasStayOpen then
@@ -9901,7 +9721,7 @@ addcmd('tptool', {'teleporttool'}, function(args, speaker)
 		if not Char or not HRP then
 			return warn("Failed to find HumanoidRootPart")
 		end
-		HRP.CFrame = CFrame.new(WYMouse.Hit.X, WYMouse.Hit.Y + 3, WYMouse.Hit.Z, select(4, HRP.CFrame:components()))
+		HRP.CFrame = CFrame.new(IYMouse.Hit.X, IYMouse.Hit.Y + 3, IYMouse.Hit.Z, select(4, HRP.CFrame:components()))
 	end)
 end)
 
@@ -11765,7 +11585,7 @@ addcmd('hovername',{},function(args, speaker)
 	nbSelection.Color3 = Color3.new(1, 1, 1)
 	local function updateNameBox()
 		local t
-		local target = WYMouse.Target
+		local target = IYMouse.Target
 
 		if target then
 			local humanoid = target.Parent:FindFirstChildOfClass("Humanoid") or target.Parent.Parent:FindFirstChildOfClass("Humanoid")
@@ -11775,11 +11595,11 @@ addcmd('hovername',{},function(args, speaker)
 		end
 
 		if t ~= nil then
-			local x = WYMouse.X
-			local y = WYMouse.Y
+			local x = IYMouse.X
+			local y = IYMouse.Y
 			local xP
 			local yP
-			if WYMouse.X > 200 then
+			if IYMouse.X > 200 then
 				xP = x - 205
 				nameBox.TextXAlignment = Enum.TextXAlignment.Right
 			else
@@ -11797,7 +11617,7 @@ addcmd('hovername',{},function(args, speaker)
 			nbSelection.Adornee = nil
 		end
 	end
-	nbUpdateFunc = WYMouse.Move:Connect(updateNameBox)
+	nbUpdateFunc = IYMouse.Move:Connect(updateNameBox)
 end)
 
 addcmd('unhovername',{'nohovername'},function(args, speaker)
@@ -12297,7 +12117,7 @@ if aliases and #aliases > 0 then
 	refreshaliases()
 end
 
-WYMouse.Move:Connect(checkTT)
+IYMouse.Move:Connect(checkTT)
 
 task.spawn(function()
 	local success, latestVersionInfo = pcall(function() 
@@ -12307,7 +12127,7 @@ task.spawn(function()
 	
 	if success then
 		if currentVersion ~= latestVersionInfo.Version then
-			notify('Oops','WindowsYield has not been updated yet.')
+			notify('Oops','Infinite Yield has not been updated yet.')
 		end
 		
 		if latestVersionInfo.Announcement and latestVersionInfo.Announcement ~= '' then
@@ -12409,5 +12229,5 @@ task.spawn(function()
 	Credits:Destroy()
 	IntroBackground:Destroy()
 	minimizeHolder()
-	if table.find({Enum.Platform.IOS, Enum.Platform.Android}, UserInputService:GetPlatform()) then notify("Unstable Device", "On mobile, WindowsYield may have issues or features that are not functioning correctly.") end
+	if table.find({Enum.Platform.IOS, Enum.Platform.Android}, UserInputService:GetPlatform()) then notify("Unstable Device", "On mobile, WindowsYield may have issues or features that are not functioning correctly because it's fucking skidded as hell") end
 end)
